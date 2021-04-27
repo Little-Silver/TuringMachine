@@ -8,7 +8,10 @@ import static com.company.Direction.RIGHT;
 
 public class MultiplicationTM
 {
-    TuringMachine turingMachine;
+    private final TuringMachine turingMachine;
+    public static final char SPACE_CHAR = 'U';
+    public static final char ZERO = '0';
+    public static final char ONE = '1';
 
     public MultiplicationTM() {
 
@@ -39,7 +42,7 @@ public class MultiplicationTM
     private int countZero(Tape finalTape) {
 
         String someString = finalTape.getCompleteTape();
-        char someChar = '0';
+        char someChar = ZERO;
         int count = 0;
 
         for (int i = 0; i < someString.length(); i++) {
@@ -47,106 +50,109 @@ public class MultiplicationTM
                 count++;
             }
         }
+        System.out.println("*****************************************************************");
+        System.out.println("Result: " + count);
+        System.out.println("*****************************************************************");
 
         return count;
     }
 
     private void state00(TuringMachine turingMachine) {
         Map<TransactionFunction, Integer> functionMap = new HashMap<>();
-        functionMap.put(new TransactionFunction('0', ' ', RIGHT), 1);
-        functionMap.put(new TransactionFunction('1', ' ', RIGHT), 13);
+        functionMap.put(new TransactionFunction(ZERO, SPACE_CHAR, RIGHT), 1);
+        functionMap.put(new TransactionFunction(ONE, SPACE_CHAR, RIGHT), 13);
         turingMachine.addState(0, functionMap);
     }
 
     private void state01(TuringMachine turingMachine) {
         Map<TransactionFunction, Integer> functionMap = new HashMap<>();
-        functionMap.put(new TransactionFunction('0', '0', RIGHT), 1);
-        functionMap.put(new TransactionFunction('1', '1', RIGHT), 1);
-        functionMap.put(new TransactionFunction(' ', ' ', LEFT), 2);
+        functionMap.put(new TransactionFunction(ZERO, ZERO, RIGHT), 1);
+        functionMap.put(new TransactionFunction(ONE, ONE, RIGHT), 1);
+        functionMap.put(new TransactionFunction(SPACE_CHAR, SPACE_CHAR, LEFT), 2);
         turingMachine.addState(1, functionMap);
     }
 
     private void state02(TuringMachine turingMachine) {
         Map<TransactionFunction, Integer> functionMap = new HashMap<>();
-        functionMap.put(new TransactionFunction('0', ' ', RIGHT), 3);
+        functionMap.put(new TransactionFunction(ZERO, SPACE_CHAR, RIGHT), 3);
         turingMachine.addState(2, functionMap);
     }
 
     private void state03(TuringMachine turingMachine) {
         Map<TransactionFunction, Integer> functionMap = new HashMap<>();
-        functionMap.put(new TransactionFunction(' ', ' ', RIGHT), 4);
+        functionMap.put(new TransactionFunction(SPACE_CHAR, SPACE_CHAR, RIGHT), 4);
         turingMachine.addState(3, functionMap);
     }
 
     private void state04(TuringMachine turingMachine) {
         Map<TransactionFunction, Integer> functionMap = new HashMap<>();
-        functionMap.put(new TransactionFunction('0', '0', RIGHT), 7);
-        functionMap.put(new TransactionFunction(' ', '0', LEFT), 5);
+        functionMap.put(new TransactionFunction(ZERO, ZERO, RIGHT), 7);
+        functionMap.put(new TransactionFunction(SPACE_CHAR, ZERO, LEFT), 5);
         turingMachine.addState(4, functionMap);
     }
 
     private void state05(TuringMachine turingMachine) {
         Map<TransactionFunction, Integer> functionMap = new HashMap<>();
-        functionMap.put(new TransactionFunction(' ', ' ', LEFT), 5);
-        functionMap.put(new TransactionFunction('0', ' ', RIGHT), 6);
+        functionMap.put(new TransactionFunction(SPACE_CHAR, SPACE_CHAR, LEFT), 5);
+        functionMap.put(new TransactionFunction(ZERO, SPACE_CHAR, RIGHT), 6);
         turingMachine.addState(5, functionMap);
     }
 
 
     private void state06(TuringMachine turingMachine) {
         Map<TransactionFunction, Integer> functionMap = new HashMap<>();
-        functionMap.put(new TransactionFunction(' ', ' ', RIGHT), 6);
-        functionMap.put(new TransactionFunction('0', '0', RIGHT), 7);
+        functionMap.put(new TransactionFunction(SPACE_CHAR, SPACE_CHAR, RIGHT), 6);
+        functionMap.put(new TransactionFunction(ZERO, ZERO, RIGHT), 7);
         turingMachine.addState(6, functionMap);
     }
 
     private void state07(TuringMachine turingMachine) {
         Map<TransactionFunction, Integer> functionMap = new HashMap<>();
-        functionMap.put(new TransactionFunction(' ', '0', LEFT), 8);
-        functionMap.put(new TransactionFunction('0', '0', RIGHT), 7);
+        functionMap.put(new TransactionFunction(SPACE_CHAR, ZERO, LEFT), 8);
+        functionMap.put(new TransactionFunction(ZERO, ZERO, RIGHT), 7);
         turingMachine.addState(7, functionMap);
     }
 
     private void state08(TuringMachine turingMachine) {
         Map<TransactionFunction, Integer> functionMap = new HashMap<>();
-        functionMap.put(new TransactionFunction('0', '0', LEFT), 8);
-        functionMap.put(new TransactionFunction(' ', ' ', LEFT), 9);
+        functionMap.put(new TransactionFunction(ZERO, ZERO, LEFT), 8);
+        functionMap.put(new TransactionFunction(SPACE_CHAR, SPACE_CHAR, LEFT), 9);
         turingMachine.addState(8, functionMap);
     }
 
     private void state09(TuringMachine turingMachine) {
         Map<TransactionFunction, Integer> functionMap = new HashMap<>();
-        functionMap.put(new TransactionFunction('0', ' ', RIGHT), 6);
-        functionMap.put(new TransactionFunction('1', '1', RIGHT), 10);
-        functionMap.put(new TransactionFunction(' ', ' ', LEFT), 9);
+        functionMap.put(new TransactionFunction(ZERO, SPACE_CHAR, RIGHT), 6);
+        functionMap.put(new TransactionFunction(ONE, ONE, RIGHT), 10);
+        functionMap.put(new TransactionFunction(SPACE_CHAR, SPACE_CHAR, LEFT), 9);
         turingMachine.addState(9, functionMap);
     }
 
     private void state10(TuringMachine turingMachine) {
         Map<TransactionFunction, Integer> functionMap = new HashMap<>();
-        functionMap.put(new TransactionFunction('0', '0', LEFT), 11);
-        functionMap.put(new TransactionFunction(' ', '0', RIGHT), 10);
+        functionMap.put(new TransactionFunction(ZERO, ZERO, LEFT), 11);
+        functionMap.put(new TransactionFunction(SPACE_CHAR, ZERO, RIGHT), 10);
         turingMachine.addState(10, functionMap);
     }
 
     private void state11(TuringMachine turingMachine) {
         Map<TransactionFunction, Integer> functionMap = new HashMap<>();
-        functionMap.put(new TransactionFunction('0', ' ', LEFT), 12);
+        functionMap.put(new TransactionFunction(ZERO, SPACE_CHAR, LEFT), 12);
         turingMachine.addState(11, functionMap);
     }
 
     private void state12(TuringMachine turingMachine) {
         Map<TransactionFunction, Integer> functionMap = new HashMap<>();
-        functionMap.put(new TransactionFunction('0', '0', LEFT), 12);
-        functionMap.put(new TransactionFunction('1', '1', LEFT), 12);
-        functionMap.put(new TransactionFunction(' ', ' ', RIGHT), 0);
+        functionMap.put(new TransactionFunction(ZERO, ZERO, LEFT), 12);
+        functionMap.put(new TransactionFunction(ONE, ONE, LEFT), 12);
+        functionMap.put(new TransactionFunction(SPACE_CHAR, SPACE_CHAR, RIGHT), 0);
         turingMachine.addState(12, functionMap);
     }
 
     private void state13(TuringMachine turingMachine) {
         Map<TransactionFunction, Integer> functionMap = new HashMap<>();
-        functionMap.put(new TransactionFunction('0', ' ', RIGHT), 13);
-        functionMap.put(new TransactionFunction(' ', ' ', RIGHT), 14);
+        functionMap.put(new TransactionFunction(ZERO, SPACE_CHAR, RIGHT), 13);
+        functionMap.put(new TransactionFunction(SPACE_CHAR, SPACE_CHAR, RIGHT), 14);
         turingMachine.addState(13, functionMap);
     }
 

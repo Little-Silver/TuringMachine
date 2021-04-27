@@ -1,5 +1,7 @@
 package com.company;
 
+import static com.company.MultiplicationTM.SPACE_CHAR;
+
 public class Tape {
 
     private int currentPos = 0;
@@ -89,9 +91,9 @@ public class Tape {
                 return tapeLeft.charAt(Math.abs(currentPos));
             }
         } catch (StringIndexOutOfBoundsException e){
-            tapeRight += ' ';
-            tapeLeft += ' ';
-            return ' ';
+            tapeRight += SPACE_CHAR;
+            tapeLeft += SPACE_CHAR;
+            return SPACE_CHAR;
         }
 
     }
