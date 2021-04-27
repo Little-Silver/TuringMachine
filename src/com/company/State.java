@@ -33,5 +33,11 @@ public class State {
         throw new IllegalArgumentException("Not accepting value: <" + currentChar + "> in State <" + stateId + "> ");
     }
 
+    public int getNextStateId(TransactionFunction function){
+        return functionMap.get(function);
+    }
 
+    public int getStateId() {
+        return stateId;
+    }
 }
