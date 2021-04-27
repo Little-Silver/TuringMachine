@@ -1,21 +1,16 @@
 package com.company;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class TuringMachine {
 
-    private final BufferedReader reader = new BufferedReader(
-            new InputStreamReader(System.in));
+
     private final char[] alphabet;
     List<State> stateList = new ArrayList<>();
     private boolean stepMode = false;
     private int stepCounter = 0;
     private State currentState;
+    private Scanner scanner = new Scanner(System.in);
 
     public TuringMachine(char[] alphabet) {
         this.alphabet = alphabet;
@@ -71,11 +66,12 @@ public class TuringMachine {
 
     private void printTMInformation(Tape tape) {
         if (stepMode) {
-            /*try {
-                String var = reader.readLine();
-            } catch (IOException e) {
+            try {
+                System.out.println("\nEingabe drücken, um den nächsten Step anzuzeigen.");
+                String var = scanner.nextLine();
+            } catch (Exception e) {
                 e.printStackTrace();
-            }*/
+            }
         }
         System.out.println("State: q_" + currentState.getStateId());
         System.out.printf("Tape: %s %n", tape.getCompleteTape());
