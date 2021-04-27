@@ -12,7 +12,7 @@ public class Tape {
 
     public Tape(String initialTape, int currentPos) {
 
-        if (currentPos <= 0 || currentPos >= initialTape.length()) {
+        if (currentPos < 0 || currentPos >= initialTape.length()) {
             throw new IllegalArgumentException("Invalid Position");
         }
 
@@ -42,7 +42,6 @@ public class Tape {
                 throw new IllegalArgumentException("Invalid Direction");
         }
 
-        replaceChar(transactionFunction.getWriteValue());
     }
 
     private boolean isFunctionValid(TransactionFunction transactionFunction) {
@@ -83,10 +82,34 @@ public class Tape {
     }
 
     public char getCurrentValue(){
-        if (currentPos >= 0) {
-            return tapeRight.charAt(currentPos);
-        } else {
-            return tapeLeft.charAt(Math.abs(currentPos));
+        try{
+            if (currentPos >= 0) {
+                return tapeRight.charAt(currentPos);
+            } else {
+                return tapeLeft.charAt(Math.abs(currentPos));
+            }
+        } catch (StringIndexOutOfBoundsException e){
+            tapeRight += ' ';
+            tapeLeft += ' ';
+            return ' ';
         }
+
+    }
+
+    public String getCompleteTape(){
+        return tapeLeft + tapeRight;
+    }
+
+    public String getTapeToPrint(){
+        int from = currentPos - 15;
+        int to = currentPos + 15;
+
+
+
+        for (int i = currentPos; i < tapeRight.length(); i++) {
+
+        }
+        return null;
+
     }
 }
