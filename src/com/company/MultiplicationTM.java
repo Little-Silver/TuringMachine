@@ -12,10 +12,15 @@ public class MultiplicationTM
     public static final char SPACE_CHAR = 'U';
     public static final char ZERO = '0';
     public static final char ONE = '1';
+    char[] alphabet = new char[3];
 
     public MultiplicationTM() {
+        alphabet[0] = SPACE_CHAR;
+        alphabet[1] = ZERO;
+        alphabet[2] = ONE;
 
-        turingMachine = new TuringMachine();
+
+        turingMachine = new TuringMachine(alphabet);
 
         state00(turingMachine);
         state01(turingMachine);

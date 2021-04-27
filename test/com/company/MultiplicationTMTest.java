@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class MultiplicationTMTest {
 
@@ -30,6 +31,16 @@ class MultiplicationTMTest {
     void multiplyBasic2x5() {
         int result = turingMachine.multiply("00100000", 0, false);
         assertEquals(10, result);
+    }
+
+    @Test
+    void multiplyBasicInvalidInputAlphabet() {
+        assertThrows(IllegalArgumentException.class, () -> turingMachine.multiply("0a100000", 0, false));
+    }
+
+    @Test
+    void multiplyBasicInvalidInputNumeric() {
+        assertThrows(IllegalArgumentException.class, () -> turingMachine.multiply("01000200", 0, false));
     }
 
     @Test
