@@ -61,7 +61,6 @@ public class TuringMachine {
     }
 
     private boolean isInAlphabet(char value) {
-        boolean contains = false;
         for (char c : alphabet) {
             if (c == value) {
                 return true;
@@ -80,6 +79,7 @@ public class TuringMachine {
         }
         System.out.println("State: q_" + currentState.getStateId());
         System.out.printf("Tape: %s %n", tape.getCompleteTape());
+        tape.printCurrentPos();
         System.out.println("Step-Counter: " + stepCounter);
     }
 

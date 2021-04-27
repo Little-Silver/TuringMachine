@@ -114,4 +114,8 @@ public class Tape {
         return null;
 
     }
+
+    public void printCurrentPos(){
+        System.out.println("Current position: " + currentPos);
+    }
 }

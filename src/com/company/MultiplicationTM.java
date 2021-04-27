@@ -19,7 +19,6 @@ public class MultiplicationTM
         alphabet[1] = ZERO;
         alphabet[2] = ONE;
 
-
         turingMachine = new TuringMachine(alphabet);
 
         state00(turingMachine);
@@ -37,6 +36,7 @@ public class MultiplicationTM
         state12(turingMachine);
         state13(turingMachine);
         state14(turingMachine);
+        state15(turingMachine);
     }
 
     public int multiply(String input, int startPos, boolean stepMode) {
@@ -80,6 +80,7 @@ public class MultiplicationTM
     private void state02(TuringMachine turingMachine) {
         Map<TransactionFunction, Integer> functionMap = new HashMap<>();
         functionMap.put(new TransactionFunction(ZERO, SPACE_CHAR, RIGHT), 3);
+        functionMap.put(new TransactionFunction(ONE, SPACE_CHAR, LEFT), 15);
         turingMachine.addState(2, functionMap);
     }
 
@@ -164,5 +165,12 @@ public class MultiplicationTM
     private void state14(TuringMachine turingMachine) {
         Map<TransactionFunction, Integer> functionMap = new HashMap<>();
         turingMachine.addStateAccepting(14, functionMap);
+    }
+
+    private void state15(TuringMachine turingMachine) {
+        Map<TransactionFunction, Integer> functionMap = new HashMap<>();
+        functionMap.put(new TransactionFunction(ZERO, SPACE_CHAR, LEFT), 15);
+        functionMap.put(new TransactionFunction(SPACE_CHAR, SPACE_CHAR, LEFT), 14);
+        turingMachine.addState(15, functionMap);
     }
 }

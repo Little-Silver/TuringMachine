@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class MultiplicationTMTest {
 
-    MultiplicationTM turingMachine;
+    private MultiplicationTM turingMachine;
 
     @BeforeEach
     void setUp(){
@@ -51,7 +51,7 @@ class MultiplicationTMTest {
 
     @Test
     void multiplyEndWithZero() {
-        int result = turingMachine.multiply("0001", 0, false);
+        int result = turingMachine.multiply("001", 0, false);
         assertEquals(0, result);
     }
 
