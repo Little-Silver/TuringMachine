@@ -93,7 +93,7 @@ public class TuringMachine {
     private void state8() {
         Map<TransactionFunction, Integer> functionMap = new HashMap<>();
         functionMap.put(new TransactionFunction('0', '0', LEFT), 8);
-        functionMap.put(new TransactionFunction(' ', ' ', RIGHT), 9);
+        functionMap.put(new TransactionFunction(' ', ' ', LEFT), 9);
         stateList.add(new State(8, functionMap));
     }
 
