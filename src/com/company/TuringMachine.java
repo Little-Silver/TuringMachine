@@ -29,8 +29,11 @@ public class TuringMachine {
     public void runTM(String input, int startPos){
         Tape tape = new Tape(input, startPos);
 
+        char currentChar;
         while(!currentState.isAccepting()){
-
+            currentChar = tape.getCurrentValue();
+            TransactionFunction function = currentState.getFunctionMapByValue(currentChar);
+            tape.step(function);
         }
     }
 

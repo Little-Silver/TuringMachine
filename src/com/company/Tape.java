@@ -82,4 +82,11 @@ public class Tape {
         return tape.substring(0, pos) + newChar + tape.substring(pos + 1);
     }
 
+    public char getCurrentValue(){
+        if (currentPos >= 0) {
+            return tapeRight.charAt(currentPos);
+        } else {
+            return tapeLeft.charAt(Math.abs(currentPos));
+        }
+    }
 }
