@@ -49,67 +49,58 @@ public class TuringMachine {
         stateList.add(new State(1, functionMap));
     }
 
-
     private void state02() {
         Map<TransactionFunction, Integer> functionMap = new HashMap<>();
-        functionMap.put(new TransactionFunction('0', '0', RIGHT), 1);
-        functionMap.put(new TransactionFunction('1', '1', RIGHT), 1);
         functionMap.put(new TransactionFunction(' ', ' ', LEFT), 2);
         stateList.add(new State(2, functionMap));
     }
 
     private void state03() {
         Map<TransactionFunction, Integer> functionMap = new HashMap<>();
-        functionMap.put(new TransactionFunction(' ', ' ', LEFT), 2);
+        functionMap.put(new TransactionFunction('0', ' ', RIGHT), 3);
         stateList.add(new State(3, functionMap));
     }
 
     private void state04() {
         Map<TransactionFunction, Integer> functionMap = new HashMap<>();
-        functionMap.put(new TransactionFunction('0', ' ', RIGHT), 3);
+        functionMap.put(new TransactionFunction(' ', ' ', RIGHT), 4);
         stateList.add(new State(4, functionMap));
     }
 
     private void state05() {
         Map<TransactionFunction, Integer> functionMap = new HashMap<>();
-        functionMap.put(new TransactionFunction(' ', ' ', RIGHT), 4);
+        functionMap.put(new TransactionFunction('0', '0', RIGHT), 7);
+        functionMap.put(new TransactionFunction(' ', '0', LEFT), 5);
         stateList.add(new State(5, functionMap));
     }
 
     private void state06() {
         Map<TransactionFunction, Integer> functionMap = new HashMap<>();
-        functionMap.put(new TransactionFunction('0', '0', RIGHT), 7);
-        functionMap.put(new TransactionFunction(' ', '0', LEFT), 5);
+        functionMap.put(new TransactionFunction(' ', ' ', LEFT), 5);
+        functionMap.put(new TransactionFunction('0', ' ', RIGHT), 6);
         stateList.add(new State(6, functionMap));
     }
 
+
     private void state07() {
         Map<TransactionFunction, Integer> functionMap = new HashMap<>();
-        functionMap.put(new TransactionFunction(' ', ' ', LEFT), 5);
-        functionMap.put(new TransactionFunction('0', ' ', RIGHT), 6);
+        functionMap.put(new TransactionFunction(' ', ' ', RIGHT), 6);
+        functionMap.put(new TransactionFunction('0', '0', RIGHT), 7);
         stateList.add(new State(7, functionMap));
     }
 
-
     private void state08() {
         Map<TransactionFunction, Integer> functionMap = new HashMap<>();
-        functionMap.put(new TransactionFunction(' ', ' ', RIGHT), 6);
+        functionMap.put(new TransactionFunction(' ', '0', LEFT), 8);
         functionMap.put(new TransactionFunction('0', '0', RIGHT), 7);
         stateList.add(new State(8, functionMap));
     }
 
-    private void state09() {
-        Map<TransactionFunction, Integer> functionMap = new HashMap<>();
-        functionMap.put(new TransactionFunction(' ', '0', LEFT), 8);
-        functionMap.put(new TransactionFunction('0', '0', RIGHT), 7);
-        stateList.add(new State(9, functionMap));
-    }
-
-    private void state10() {
+    private void state9() {
         Map<TransactionFunction, Integer> functionMap = new HashMap<>();
         functionMap.put(new TransactionFunction('0', '0', LEFT), 8);
         functionMap.put(new TransactionFunction(' ', ' ', RIGHT), 9);
-        stateList.add(new State(10, functionMap));
+        stateList.add(new State(9, functionMap));
     }
 
 }
