@@ -5,9 +5,9 @@ package com.company;
  */
 public class TransactionFunction {
 
-    private char readValue;
-    private char writeValue;
-    private Direction direction;
+    private final char readValue;
+    private final char writeValue;
+    private final Direction direction;
 
     public TransactionFunction(char readValue, char writeValue, Direction direction) {
         this.readValue = readValue;
@@ -23,23 +23,12 @@ public class TransactionFunction {
         return readValue;
     }
 
-    public void setReadValue(char readValue) {
-        this.readValue = readValue;
-    }
-
     public char getWriteValue() {
         return writeValue;
-    }
-
-    public void setWriteValue(char writeValue) {
-        this.writeValue = writeValue;
     }
 
     public Direction getDirection() {
         return direction;
     }
 
-    public void setDirection(Direction direction) {
-        this.direction = direction;
-    }
 }
