@@ -114,8 +114,8 @@ public class Tape {
     public String getTapeToPrint(){
         int from = currentPos - 15;
         int to = currentPos + 15;
-        String leftFromCurrentPos = "UUUUUUUUUUUUUUU"; //15x das leere Zeichen
-        String rightFromCurrentPos = "UUUUUUUUUUUUUUU"; //15x das leere Zeichen
+        String leftFromCurrentPos = String.valueOf(SPACE_CHAR).repeat(15); //15x das leere Zeichen
+        String rightFromCurrentPos = String.valueOf(SPACE_CHAR).repeat(15); //15x das leere Zeichen
 
         for (int i = from; i < currentPos; i++) {
             if (i>=0) {
