@@ -1,0 +1,11 @@
+
+Y
+java:S1854G"7Remove this useless assignment to local variable "var".(†©ώώÿÿÿÿ8φτη¥‘/
+N	java:S106F"9Replace this use of System.out or System.err by a logger.(¨¤Βµ
+\
+java:S6213G":Rename this variable to not match a restricted identifier.(†©ώώÿÿÿÿ8φτη¥‘/
+M	java:S106L"9Replace this use of System.out or System.err by a logger.(›"
+U	java:S106M"9Replace this use of System.out or System.err by a logger.(Π«Ϊΐ8€π¤‘/
+T	java:S106O"9Replace this use of System.out or System.err by a logger.(Τεϋ"8φτη¥‘/
+J
+java:S1481G"(Remove this unused "var" local variable.(†©ώώÿÿÿÿ8φτη¥‘/
