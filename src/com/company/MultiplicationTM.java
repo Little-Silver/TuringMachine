@@ -100,6 +100,7 @@ public class MultiplicationTM
     private void state05(TuringMachine turingMachine) {
         Map<TransactionFunction, Integer> functionMap = new HashMap<>();
         functionMap.put(new TransactionFunction(SPACE_CHAR, SPACE_CHAR, LEFT), 5);
+        functionMap.put(new TransactionFunction(ONE, ONE, RIGHT), 10);
         functionMap.put(new TransactionFunction(ZERO, SPACE_CHAR, RIGHT), 6);
         turingMachine.addState(5, functionMap);
     }

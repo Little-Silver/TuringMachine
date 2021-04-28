@@ -34,6 +34,12 @@ class MultiplicationTMTest {
     }
 
     @Test
+    void multiplyBasic2x1() {
+        int result = turingMachine.multiply("0010", 0, false);
+        assertEquals(2, result);
+    }
+
+    @Test
     void multiplyBasicInvalidInputAlphabet() {
         assertThrows(IllegalArgumentException.class, () -> turingMachine.multiply("0a100000", 0, false));
     }

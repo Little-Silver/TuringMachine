@@ -102,16 +102,32 @@ public class Tape {
         return tapeLeft + tapeRight;
     }
 
+    private char getCharAtPos(int pos) {
+        char c = SPACE_CHAR;
+        if (pos > 0) {
+            if (pos>=tapeRight.length()) return c;
+            c = tapeRight.charAt(pos);
+        }
+        return c;
+    }
+
     public String getTapeToPrint(){
         int from = currentPos - 15;
         int to = currentPos + 15;
+        String leftFromCurrentPos = "UUUUUUUUUUUUUUU"; //15x das leere Zeichen
+        String rightFromCurrentPos = "UUUUUUUUUUUUUUU"; //15x das leere Zeichen
 
-
-
-        for (int i = currentPos; i < tapeRight.length(); i++) {
-
+        for (int i = from; i < currentPos; i++) {
+            if (i>=0) {
+                leftFromCurrentPos = replaceCharAtPos(leftFromCurrentPos, getCharAtPos(i), (i-from));
+            }
         }
-        return null;
+
+        for (int i = currentPos+1; i <= to; i++) {
+            rightFromCurrentPos = replaceCharAtPos(rightFromCurrentPos, getCharAtPos(i), (i-currentPos-1));
+        }
+
+        return leftFromCurrentPos + "[" + getCurrentValue() + "]" + rightFromCurrentPos;
 
     }
 
@@ -119,3 +135,10 @@ public class Tape {
         System.out.println("Current position: " + currentPos);
     }
 }
+
+
+
+
+
+
+

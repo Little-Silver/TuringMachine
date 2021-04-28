@@ -74,7 +74,7 @@ public class TuringMachine {
             }
         }
         System.out.println("State: q_" + currentState.getStateId());
-        System.out.printf("Tape: %s %n", tape.getCompleteTape());
+        System.out.println("Tape: " + tape.getTapeToPrint());
         tape.printCurrentPos();
         System.out.println("Step-Counter: " + stepCounter);
     }
